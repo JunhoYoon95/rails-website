@@ -4,7 +4,15 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Shopping Mall"
+  config.site_title = "Junmannn's Shopping Mall"
+
+  # 이 코드가 있으면 이제 관리자페이지에서 CRUD 할때에 권한문제가 생기지 않는다
+  config.before_action do
+    params.permit!
+  end
+
+  # 모든 관리자 페이지에서 댓글을 달 수 있는데 일단 설정 복잡해서 쫄아서 안슬거임.
+  config.comments = false
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
